@@ -5,7 +5,8 @@
   "main": "digitPowerSum.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
-    "start": "nodemon numberLetterCount_17.js"
+    "start": "clear && npx nodemon",
+    "dev": "clear && npx nodemon"
   },
   "repository": {
     "type": "git",
