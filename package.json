@@ -2,11 +2,11 @@
   "name": "practiceAlgorithm",
   "version": "1.0.0",
   "description": "https://projecteuler.net/archives",
-  "main": "digitPowerSum.js",
+  "main": "2022/digitPowerSum.js",
   "scripts": {
     "test": "echo \"Error: no test specified\" && exit 1",
     "start": "clear && npx nodemon",
-    "dev": "clear && npx nodemon"
+    "dev": "clear && npx nodemon <fileName>"
   },
   "repository": {
     "type": "git",
