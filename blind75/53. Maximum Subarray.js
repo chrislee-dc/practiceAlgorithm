@@ -56,6 +56,14 @@ console.clear()
 // };
 
 function maxSubArray(nums) {
+    // [5,4,-1,7,8]
+    // [-2,1,-3,4,-1,2,1,-5,4]
+
+    /**
+     *  [4,-1,2,1]
+     * 
+     * 
+     */
     let maxSoFar = nums[0];
     let maxEndingHere = nums[0];
 
@@ -66,6 +74,11 @@ function maxSubArray(nums) {
 
     return maxSoFar;
 }
+
+/**
+ *  9
+ */
+
 
 
 // const result = maxSubArray([-2,1,-3,4,-1,2,1,-5,4])
