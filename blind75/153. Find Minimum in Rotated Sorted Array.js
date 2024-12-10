@@ -35,21 +35,20 @@ console.clear();
  * LEET CODE ANSWER
  */
 var findMin2 = function(nums) {
-    const n=nums.length;
-    let start=0,end=n-1;
-    let min=Number.MAX_SAFE_INTEGER;
-    while(start<=end){
-     const mid=start+Math.floor((end-start)/2);
-     if(nums[start]<=nums[mid]){
-        min=Math.min(nums[start],min);
-        start=mid+1;
-     }
-     else{
-        min=Math.min(nums[mid],min);
-        end=mid-1;
-     }
+    
+    let left = 0
+    let right = nums.length - 1
+
+    while(left < right ) {
+        let mid = Math.floor((left + right) / 2)
+
+        if(nums[right] < nums[mid]) {
+            left = mid + 1;
+        } else {
+            right = mid
+        }
     }
-    return min;
+    return nums[left];
 };
 
 
@@ -67,5 +66,5 @@ const result2 = [4,5,6,7,0,1,2]
 const result3 = [11,13,15,17]
 
 
-console.log(findMin(result))
+console.log(findMin2(result3))
 
