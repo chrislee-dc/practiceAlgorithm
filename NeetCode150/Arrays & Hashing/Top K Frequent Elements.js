@@ -18,6 +18,7 @@
 var topKFrequent2 = function (nums, k) {
   const count = {};
   const freq = Array.from({ length: nums.length + 1 }, () => [2]);
+  console.log("🚀 ~ topKFrequent2 ~ freq:", freq);
 
   for (const n of nums) {
     count[n] = (count[n] || 0) + 1;

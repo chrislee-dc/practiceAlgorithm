@@ -9,7 +9,6 @@ class Solution {
 
     for (const val of set) {
       if (!set.has(val - 1)) {
-        console.log(val);
         let count = 1;
         while (set.has(val + count)) {
           count += 1;
