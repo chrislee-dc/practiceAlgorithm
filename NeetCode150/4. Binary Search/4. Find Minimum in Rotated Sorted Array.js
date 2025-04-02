@@ -34,5 +34,48 @@ class Solution {
    * @param {number[]} nums
    * @return {number}
    */
-  findMin(nums) {}
+  /**
+   * @param {number[]} nums
+   * @return {number}
+   */
+  findMin(nums) {
+    let l = 0,
+      r = nums.length - 1;
+    while (l < r) {
+      let m = l + Math.floor((r - l) / 2);
+      if (nums[m] < nums[r]) {
+        r = m;
+      } else {
+        l = m + 1;
+      }
+    }
+    return nums[l];
+  }
 }
+
+new Solution().findMin([5, 1, 2, 3, 4]);
+// 4 5 1 2 3
+// 3 4 5 1 2
+
+// Input: nums = [3,4,5,6,1,2]
+// Output: 1
+
+/**
+ *
+ * middle = 2
+ * if 5 > 2
+ * l = 2, r = 5
+ *
+ * middle = 3
+ * if 6 > 2
+ * l = 3, r = 5
+ *
+ */
+
+// Input: nums = [1,2,3,4,5]
+// Output: 1
+
+/**
+ *
+ *
+ */
