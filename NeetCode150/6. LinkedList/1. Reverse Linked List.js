@@ -52,4 +52,4 @@ arr = [0, 1, 2];
 
 const list = createLinkedList(arr);
 
-new Solution().reverseList(list.head);
+new Solution().reverseList(list);

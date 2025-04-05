@@ -68,4 +68,4 @@ class Solution {
 list1 = createLinkedList([1, 2, 4]);
 list2 = createLinkedList([1, 3, 5]);
 
-new Solution().mergeTwoLists(list1.head, list2.head);
+new Solution().mergeTwoLists(list1, list2);
