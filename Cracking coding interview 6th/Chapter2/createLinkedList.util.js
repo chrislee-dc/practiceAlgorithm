@@ -136,7 +136,7 @@ function createLinkedList(arr) {
   for (let elem of arr) {
     list.append(elem);
   }
-  return list;
+  return list.head;
 }
 
 module.exports = { LinkedList, createLinkedList };
