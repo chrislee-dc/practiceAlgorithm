@@ -2,8 +2,8 @@
 /*
 ADT:
 # Main operations
-prepend(value)        -> Add a node in the beginning
-append(value)         -> Add a node in the end
+prepend(val)        -> Add a node in the beginning
+append(val)         -> Add a node in the end
 pop()                 -> Remove a node from the end
 popFirst()            -> Remove a node from the beginning
 head()                -> Return the first node
@@ -14,8 +14,8 @@ remove(Node)*         -> Remove Node from the list
 // NOTE: no type-safety
 
 class Node {
-  constructor(value) {
-    this.value = value;
+  constructor(val) {
+    this.val = val;
     this.next = null;
   }
 }
@@ -26,8 +26,8 @@ class LinkedList {
     this.tail = null;
   }
 
-  append(value) {
-    let node = new Node(value);
+  append(val) {
+    let node = new Node(val);
     // if list is empty
     if (!this.head) {
       this.head = node;
@@ -38,8 +38,8 @@ class LinkedList {
     }
   }
 
-  prepend(value) {
-    let node = new Node(value);
+  prepend(val) {
+    let node = new Node(val);
     node.next = this.head;
     this.head = node;
   }
@@ -86,7 +86,7 @@ class LinkedList {
         if (prev == null) this.head = cur.next;
         else prev.next = cur.next;
         cur.next = null;
-        return cur.value;
+        return cur.val;
       } else {
         prev = cur;
         cur = cur.next;
@@ -96,14 +96,14 @@ class LinkedList {
     return null;
   }
 
-  insertAt(index, value) {
-    if (index == 0) return this.prepend(value);
+  insertAt(index, val) {
+    if (index == 0) return this.prepend(val);
     let cur = this.head;
     let i = 0;
 
     while (cur != null) {
       if (i == index - 1) {
-        let node = new Node(value);
+        let node = new Node(val);
         node.next = cur.next;
         cur.next = node;
         return true;
@@ -123,7 +123,7 @@ class LinkedList {
     let arr = [];
     let cur = this.head;
     while (cur) {
-      arr.push(cur.value);
+      arr.push(cur.val);
       cur = cur.next;
     }
 
@@ -131,7 +131,15 @@ class LinkedList {
   }
 }
 
-module.exports = LinkedList;
+function createLinkedList(arr) {
+  const list = new LinkedList();
+  for (let elem of arr) {
+    list.append(elem);
+  }
+  return list;
+}
+
+module.exports = { LinkedList, createLinkedList };
 
 /* TEST */
 
@@ -143,7 +151,7 @@ module.exports = LinkedList;
 // l.append(5);
 
 // console.log(l.removeAt(1), 4);
-// console.log(l.pop().value, 5);
+// console.log(l.pop().val, 5);
 
 // console.log(l._toArray());
 // l.insertAt(2, 40);
