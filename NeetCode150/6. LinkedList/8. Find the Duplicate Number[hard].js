@@ -30,5 +30,24 @@ class Solution {
    * @param {number[]} nums
    * @return {number}
    */
-  findDuplicate(nums) {}
+  findDuplicate(nums) {
+    let slow = 0;
+    let fast = 0;
+    while (fast && fast.next) {
+      slow = nums[slow];
+      fast = nums[nums[fast]];
+      if (slow === fast) {
+        break;
+      }
+    }
+
+    let slow2 = 0;
+    while (slow && slow2) {
+      slow2 = nums[slow2];
+      slow = nums[slow];
+      if (slow === slow2) {
+        return slow;
+      }
+    }
+  }
 }
