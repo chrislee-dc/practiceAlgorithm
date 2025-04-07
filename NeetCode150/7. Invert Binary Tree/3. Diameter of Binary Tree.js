@@ -23,6 +23,9 @@ const createBinaryTree = require("../../utils/createBinaryTree");
 // 1 <= number of nodes in the tree <= 100
 // -100 <= Node.val <= 100
 
+// Recommended Time & Space Complexity
+// You should aim for a solution with O(n) time and O(n) space, where n is the number of nodes in the tree.
+
 /**
  * Definition for a binary tree node.
  * class TreeNode {
