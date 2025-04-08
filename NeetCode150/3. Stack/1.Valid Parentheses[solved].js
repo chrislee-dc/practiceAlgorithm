@@ -56,39 +56,31 @@ class NeetCodeSolution {
     return stack.length === 0;
   }
 }
-
 class Solution {
   /**
    * @param {string} s
    * @return {boolean}
    */
   isValid(s) {
-    if (!s.length || s.length % 2 !== 0) {
-      return false;
-    }
-
-    const validBrackets = {
-      ")": "(",
+    const allBrackets = {
       "]": "[",
       "}": "{",
+      ")": "(",
     };
-    const validStartBrackes = ["(", "[", "{"];
-
-    let result = "";
+    const arr = [];
 
     for (let i = 0; i < s.length; i++) {
-      if (validStartBrackes.includes(s[i])) {
-        result += s[i];
-      } else if (validBrackets[s[i]] !== result[result.length - 1]) {
-        // console.log(result, result[result.length - 1], validBrackets[s[i]]);
-        return false;
+      if (!allBrackets[s[i]]) {
+        arr.push(s[i]);
       } else {
-        // console.log("🚀 ~ isValid ~ result:", result)
-        result = result.slice(0, result.length - 1);
+        // console.log(arr, s[i])
+        if (allBrackets[s[i]] !== arr.pop()) {
+          return false;
+        }
       }
     }
 
-    return !result.length;
+    return !arr.length;
   }
 }
 
