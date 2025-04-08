@@ -19,33 +19,33 @@
 // tokens[i] is "+", "-", "*", or "/", or a string representing an integer in the range [-100, 100].
 
 class Solution {
-  // constructor() {
-  // this.calculation = ["+", "-", "*", "/"];
-  // }
   /**
    * @param {string[]} tokens
    * @return {number}
    */
   evalRPN(tokens) {
-    let stack = [];
-    for (let i = 0; i < tokens.length; i++) {
-      if (!isNaN(tokens[i])) {
-        stack.push(tokens[i]);
-        continue;
-      }
+    const allOperations = {
+      "+": (a, b) => a + b,
+      "-": (a, b) => a - b,
+      "*": (a, b) => a * b,
+      "/": (a, b) => {
+        return a / b > 0 ? Math.floor(a / b) : Math.ceil(a / b);
+      },
+    };
 
-      const a = parseInt(stack.pop());
-      const b = parseInt(stack.pop());
+    const stack = [];
 
-      if (tokens[i] === "+") {
-        stack.push(b + a);
-      } else if (tokens[i] === "-") {
-        stack.push(b - a);
-      } else if (tokens[i] === "*") {
-        stack.push(b * a);
-      } else if (tokens[i] === "/") {
-        stack.push(parseInt(b / a));
+    let i = 0;
+    while (i < tokens.length) {
+      console.log(stack);
+      if (allOperations[tokens[i]]) {
+        const ele1 = stack.pop();
+        const ele2 = stack.pop();
+        stack.push(+allOperations[tokens[i]](ele2, ele1));
+      } else {
+        stack.push(+tokens[i]);
       }
+      i++;
     }
     return stack[0];
   }
