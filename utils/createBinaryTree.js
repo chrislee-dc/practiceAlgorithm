@@ -43,4 +43,4 @@ function createBinaryTree(arr) {
   return root;
 }
 
-module.exports = createBinaryTree;
+module.exports = { createBinaryTree };
