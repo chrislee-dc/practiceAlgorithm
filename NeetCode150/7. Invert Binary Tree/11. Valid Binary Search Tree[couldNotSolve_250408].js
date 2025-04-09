@@ -34,31 +34,25 @@ const createBinaryTree = require("../../utils/createBinaryTree");
  *     }
  * }
  */
-
 class NeetCodeSolution {
   /**
    * @param {TreeNode} root
    * @return {boolean}
    */
   isValidBST(root) {
-    return this.valid(root, -Infinity, Infinity);
+    return this.dfs(root, -Infinity, Infinity);
   }
 
-  /**
-   * @param {TreeNode} node
-   * @param {number} left
-   * @param {number} right
-   */
-  valid(node, left, right) {
-    if (node === null) {
-      return true;
-    }
-    if (!(left < node.val && node.val < right)) {
+  dfs(root, left, right) {
+    if (!root) return true;
+
+    if (!(left < root.val && right > root.val)) {
       return false;
     }
+
     return (
-      this.valid(node.left, left, node.val) &&
-      this.valid(node.right, node.val, right)
+      this.dfs(root.left, left, root.val) &&
+      this.dfs(root.right, root.val, right)
     );
   }
 }

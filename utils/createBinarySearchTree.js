@@ -31,4 +31,4 @@ function createBinarySearchTree(values) {
   return root;
 }
 
-module.exports = createBinarySearchTree;
+module.exports = { createBinarySearchTree };
