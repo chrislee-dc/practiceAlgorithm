@@ -49,6 +49,6 @@ board = [
   ["S", "A", "A", "T"],
   ["A", "C", "A", "E"],
 ];
-word = "BAT";
+word = "CAT";
 
 console.log(new Solution().exist(board, word));
