@@ -32,10 +32,3 @@ class Solution {
     return copy;
   }
 }
-
-adjList = [[2], [1, 3], [2]];
-const graphNode = createGraph(adjList);
-console.log("🚀 ~ graphNode:", graphNode.neighbors[0].neighbors[1].neighbors);
-
-const result = new Solution().cloneGraph(graphNode);
-console.log(result.neighbors[0].neighbors[1].neighbors);

@@ -1,5 +1,3 @@
-const { Queue } = require("@datastructures-js/queue");
-
 class Solution {
   /**
    * @param {number[][]} grid
@@ -52,17 +50,3 @@ class Solution {
     return grid;
   }
 }
-
-grid = [
-  [2147483647, -1, 0, 2147483647],
-  [2147483647, 2147483647, 2147483647, -1],
-  [2147483647, -1, 2147483647, -1],
-  [0, -1, 2147483647, 2147483647],
-];
-
-// grid = [
-//   [0, -1],
-//   [2147483647, 2147483647],
-// ];
-
-new Solution().islandsAndTreasure(grid);
