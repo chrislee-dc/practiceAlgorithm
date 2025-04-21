@@ -6,58 +6,37 @@ class Solution {
    */
   countComponents(n, edges) {
     let map = new Map();
+
+    for (let i = 0; i < n; i++) {
+      map.set(i, []);
+    }
+
     for (let [start, end] of edges) {
-      if (!map.has(start)) map.set(start, []);
-      if (!map.has(end)) map.set(end, []);
       map.get(start).push(end);
       map.get(end).push(start);
     }
 
     const set = new Set();
 
-    const dfs = (node, preValue) => {
+    const dfs = (node) => {
       if (set.has(node)) {
-        return false;
-      }
-
-      if (map.get(node).length === 0) {
-        return true;
+        return;
       }
 
       set.add(node);
 
-      for (let newNode of map.get(node)) {
-        if (newNode === preValue) {
-          continue;
-        }
-        dfs(newNode, node);
+      for (let neighbour of map.get(node)) {
+        dfs(neighbour);
       }
-
-      map.set(node, []);
-
-      return true;
     };
 
     let count = 0;
-    // for (let key of [...map.keys()]) {
-    //   if (map.get(key).length) {
-    //     if (!dfs(key, -1)) return 1;
-    //     count++;
-    //   }
-    // }
-
     for (let i = 0; i < n; i++) {
-      if (map.get(i)) {
-        if (!set.has(i)) {
-          dfs(i, -1);
-          count++;
-        }
-      } else {
+      if (!set.has(i)) {
+        dfs(i);
         count++;
       }
     }
-    // console.log("🚀 ~ Solution ~ countComponents ~ count:", count);
-    return count;
   }
 }
 
