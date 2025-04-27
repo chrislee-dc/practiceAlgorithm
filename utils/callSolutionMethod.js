@@ -7,17 +7,11 @@ function callSolutionMethod(SolutionClass, ...args) {
       name !== "constructor" && typeof solutionInstance[name] === "function"
   );
 
-  if (methodNames.length !== 1) {
-    throw new Error(
-      `Expected exactly one method in Solution class, found: ${methodNames.join(
-        ", "
-      )}`
-    );
-  }
+  console.clear();
 
   const methodName = methodNames[0];
   const result = solutionInstance[methodName](...args);
-  console.log("method result => ", result);
+  console.log("Result => ", result);
   return result;
 }
 
