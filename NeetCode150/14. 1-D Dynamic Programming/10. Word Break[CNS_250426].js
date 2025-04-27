@@ -36,4 +36,7 @@ s = "cars";
 wordDict = ["car", "ca", "rs"];
 // s = "cbca";
 // wordDict = ["bc", "ca"];
+s = "catsanddog";
+wordDict = ["a", "an", "cat", "cats", "and", "sand", "dog"];
+// (s = "catsanddog"((s = "applepenapple"))), (wordDict = ["app", "apple", "pen"]);
 new Solution().wordBreak(s, wordDict);
