@@ -1,4 +1,4 @@
-const { callSolutionMethod } = require("../../utils/callSolutionMethod");
+const { executeSolution } = require("../../utils/executeSolution");
 
 class Solution {
   /**
@@ -35,4 +35,4 @@ class Solution {
 
 n = 101;
 
-callSolutionMethod(Solution, n);
+executeSolution(Solution, n);
