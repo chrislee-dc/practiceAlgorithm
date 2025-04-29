@@ -1,4 +1,4 @@
-function callSolutionMethod(SolutionClass, ...args) {
+function executeSolution(SolutionClass, ...args) {
   let solutionInstance = new SolutionClass();
   const methodNames = Object.getOwnPropertyNames(
     Object.getPrototypeOf(solutionInstance)
@@ -15,4 +15,4 @@ function callSolutionMethod(SolutionClass, ...args) {
   return result;
 }
 
-module.exports = { callSolutionMethod };
+module.exports = { executeSolution };
