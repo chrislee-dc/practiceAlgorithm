@@ -39,17 +39,20 @@ class Solution {
    * @return {number}
    */
   findMin(nums) {
-    let l = 0,
-      r = nums.length - 1;
+    let l = 0;
+    let r = nums.length - 1;
+
     while (l < r) {
-      let m = l + Math.floor((r - l) / 2);
-      if (nums[m] < nums[r]) {
-        r = m;
+      let mid = Math.floor((l + r) / 2);
+
+      if (nums[mid] > nums[r]) {
+        l = mid + 1;
       } else {
-        l = m + 1;
+        r = mid;
       }
     }
-    return nums[l];
+
+    return nums[r];
   }
 }
 
