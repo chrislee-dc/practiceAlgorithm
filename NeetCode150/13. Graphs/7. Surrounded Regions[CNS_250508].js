@@ -44,7 +44,6 @@ class Solution {
         }
       }
     }
-    console.log("🚀 ~ Solution ~ solve ~ board:", board);
     return board;
   }
 }
