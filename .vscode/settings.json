@@ -1,19 +1,21 @@
 {
-  "python.linting.mypyEnabled": true,
-  "python.linting.enabled": true,
-  "python.linting.flake8Enabled": false,
-  "python.linting.banditEnabled": false,
-  "python.linting.pylamaEnabled": false,
-  "IDX.aI.enableInlineCompletion": false,
-  "IDX.aI.enableCodebaseIndexing": true,
-  "github.copilot.enable": {
-    "*": false,
-    "plaintext": false,
-    "markdown": false,
-    "scminput": false,
-    "enabled": false,
-    "suggestion": false,
-    "inline": false,
-    "enableInlineCompletion": false
-  }
+    "editor.tabSize": 4,
+    "editor.insertSpaces": true,
+    "python.linting.mypyEnabled": true,
+    "python.linting.enabled": true,
+    "python.linting.flake8Enabled": false,
+    "python.linting.banditEnabled": false,
+    "python.linting.pylamaEnabled": false,
+    "IDX.aI.enableInlineCompletion": false,
+    "IDX.aI.enableCodebaseIndexing": true,
+    "github.copilot.enable": {
+        "*": false,
+        "plaintext": false,
+        "markdown": false,
+        "scminput": false,
+        "enabled": false,
+        "suggestion": false,
+        "inline": false,
+        "enableInlineCompletion": false
+    }
 }
