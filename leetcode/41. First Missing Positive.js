@@ -32,30 +32,30 @@
 // // Expected output: 1
 
 function findLowestPositiveInteger(nums) {
-  let n = nums.length;
+    let n = nums.length;
 
-  for (let i = 0; i <= n; i++) {
-    let cp = nums[i] - 1;
+    for (let i = 0; i <= n; i++) {
+        let cp = nums[i] - 1;
 
-    while (nums[i] > 0 && nums[i] <= n && nums[i] != nums[cp]) {
-      let temp = nums[i];
-      nums[i] = nums[cp];
-      nums[cp] = temp;
-      cp = nums[i] - 1;
+        while (nums[i] > 0 && nums[i] <= n && nums[i] != nums[cp]) {
+            let temp = nums[i];
+            nums[i] = nums[cp];
+            nums[cp] = temp;
+            cp = nums[i] - 1;
+        }
     }
-  }
 
-  for (let i = 0; i < n; i++) {
-    if (nums[i] != i + 1) {
-      return i + 1;
+    for (let i = 0; i < n; i++) {
+        if (nums[i] != i + 1) {
+            return i + 1;
+        }
     }
-  }
 }
 
 const a = [1, 2, 0];
 const b = [3, 4, -1, 1];
 const c = [7, 8, 9, 11, 12];
 
-console.log(findLowestPositiveInteger(a));
+// console.log(findLowestPositiveInteger(a));
 console.log(findLowestPositiveInteger(b));
-console.log(findLowestPositiveInteger(c));
+// console.log(findLowestPositiveInteger(c));
