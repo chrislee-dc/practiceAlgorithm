@@ -1,4 +1,10 @@
-Hash Table 41. First Missing Positive[250605]
+## Hash Table
+
+41. First Missing Positive[250605]
+
+## Binary Search Tree
+
+1146. Snapshot Array [250707]
 
 ## Trees
 
