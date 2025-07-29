@@ -15,3 +15,4 @@ Serialize and Deserialize Binary Tree[250607]
 ## Trie
 
 Implement Trie (Prefix Tree) [250703]
+Design Add and Search Word Data Structure [250728]
