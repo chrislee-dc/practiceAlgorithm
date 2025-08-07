@@ -6,6 +6,10 @@
 
 1146. Snapshot Array [250707]
 
+## LinkedList
+
+2074. Reverse Nodes in Even Length Groups [250806]
+
 ## Trees
 
 Construct Binary Tree from Preorder and Inorder Traversal[250605]
