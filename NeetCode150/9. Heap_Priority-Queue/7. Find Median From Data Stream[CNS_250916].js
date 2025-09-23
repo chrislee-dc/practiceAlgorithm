@@ -1,8 +1,12 @@
-const { MinPriorityQueue } = require("@datastructures-js/priority-queue");
+const {
+    MinPriorityQueue,
+    MaxPriorityQueue,
+} = require("@datastructures-js/priority-queue");
 
 class MedianFinder {
     constructor() {
-        this.queue = new MinPriorityQueue();
+        this.small = new MaxPriorityQueue();
+        this.large = new MinPriorityQueue();
     }
 
     /**
@@ -11,31 +15,35 @@ class MedianFinder {
      * @return {void}
      */
     addNum(num) {
-        this.queue.enqueue(num);
+        if (!this.large.size() || this.large.front() < num) {
+            this.large.enqueue(num);
+        } else {
+            this.small.enqueue(num);
+        }
+
+        if (this.large.size() > this.small.size() + 1) {
+            this.small.enqueue(this.large.dequeue());
+        } else if (this.small.size() > this.large.size() + 1) {
+            this.large.enqueue(this.small.dequeue());
+        }
     }
 
     /**
      * @return {number}
      */
     findMedian() {
-        let arr = this.queue.toArray();
-        console.log("🚀 ~ MedianFinder ~ findMedian ~ arr:", arr);
-
-        let mid = Math.floor(arr.length % 2);
-        console.log("🚀 ~ MedianFinder ~ findMedian ~ mid:", mid);
-
-        if (arr.length % 2 === 1) {
-            console.log(arr[mid]);
-            return parseFloat(arr[mid]);
+        if (this.large.size() > this.small.size()) {
+            return this.large.front();
+        } else if (this.small.size() > this.large.size()) {
+            return this.small.front();
+        } else {
+            return (this.small.front() + this.large.front()) / 2;
         }
-
-        return parseFloat((arr[mid] + arr[mid + 1]) / 2);
     }
 }
 
 medianFinder = new MedianFinder();
 medianFinder.addNum(1); // arr = [1]
-console.log(medianFinder.findMedian()); // return 1.0
 // medianFinder.addNum(3); // arr = [1, 3]
 // medianFinder.findMedian(); // return 2.0
 // medianFinder.addNum(2); // arr[1, 2, 3]
