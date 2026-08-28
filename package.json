@@ -6,7 +6,8 @@
     "scripts": {
         "test": "echo \"Error: no test specified\" && exit 1",
         "start": "clear && npx nodemon",
-        "dev": "clear && npx nodemon <fileName>"
+        "dev": "clear && npx nodemon <fileName>",
+        "prepare": "husky"
     },
     "repository": {
         "type": "git",
@@ -22,6 +23,9 @@
     "dependencies": {
         "@datastructures-js/priority-queue": "^6.3.2",
         "@datastructures-js/queue": "^4.2.3"
+    },
+    "devDependencies": {
+        "husky": "^9.1.7"
     },
     "prettier": {
         "tabWidth": 4
