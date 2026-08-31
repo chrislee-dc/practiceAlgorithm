@@ -28,20 +28,23 @@ const stagedFiles = execFileSync(
 for (const file of stagedFiles) {
     const extension = path.extname(file);
     const baseName = path.basename(file, extension);
+    const nameWithoutDate = baseName.replace(/_\d{6}$/, "");
 
-    if (extension !== ".js" || /_\d{6}$/.test(baseName)) {
+    if (extension !== ".js") {
         continue;
     }
 
     const renamedFile = path.join(
         path.dirname(file),
-        `${baseName}_${dateSuffix}${extension}`,
+        `${nameWithoutDate}_${dateSuffix}${extension}`,
     );
 
+    if (renamedFile === file) {
+        continue;
+    }
+
     if (fs.existsSync(renamedFile)) {
-        throw new Error(
-            `Cannot rename ${file}: ${renamedFile} already exists.`,
-        );
+        continue;
     }
 
     fs.renameSync(file, renamedFile);
